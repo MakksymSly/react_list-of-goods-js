@@ -25,9 +25,9 @@ export const App = () => {
     const updatedGoods = [...array];
 
     if (sortType === 'alphabetical') {
-      updatedGoods.sort((a, b) => a.localeCompare(b));
+      updatedGoods.sort((good1, good2) => good1.localeCompare(good2));
     } else if (sortType === 'length') {
-      updatedGoods.sort((a, b) => a.length - b.length);
+      updatedGoods.sort((good1, good2) => good1.length - good2.length);
     }
 
     if (reverse) {
@@ -120,7 +120,9 @@ export const App = () => {
 
       <ul>
         {goods.map(good => (
-          <li data-cy="Good">{good}</li>
+          <li key={good} data-cy="Good">
+            {good}
+          </li>
         ))}
       </ul>
     </div>
